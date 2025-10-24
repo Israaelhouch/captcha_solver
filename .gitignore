@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.sqlite
+.vscode/
+
+# Environments
+venv/
+
+# Data and Logs
+data/raw/*
+data/outputs/*
+logs/*
+!data/raw/.gitkeep
+!outputs/.gitkeep
+!logs/.gitkeep
+!model/results/predictions/.gitkeep
+!model/results/evaluation/.gitkeep
+!model/weights/.gitkeep
+
+
+# OS files
+.DS_Store
+Thumbs.db
