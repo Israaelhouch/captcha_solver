@@ -158,11 +158,6 @@ python run.py solve --image path/to/captcha_image.jpg --conf 0.3
 
 ---
 
-## Future Improvements
--
-
----
-
 ## Credits
 **Created by:** Israa Elhouch
 **Contact:** issrach235@gmail.com  
