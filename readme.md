@@ -18,8 +18,8 @@ The pipeline includes:
 3. **Evaluation** – precision, recall, F1-score, mAP metrics
 4. **Inference/Solving** – detecting digits in new CAPTCHA images
 5. **Visualization** – annotated images with bounding boxes and predicted digits
-
----
+<p align="center"> <img src="assets/captcha_inference_example.png" alt="YOLOv8 successfully detecting and recognizing digits in a CAPTCHA image." width="600"> </p> <p align="center"> <em>Demonstration: Example of YOLOv8 successfully solving a CAPTCHA by detecting each digit and labeling it with the correct class (0-9).</em> </p>
+---S
 
 ## Features
 
@@ -32,34 +32,33 @@ The pipeline includes:
 ---
 
 ## Dataset
-
+- **Data Preparation**: The dataset was manually annotated to create precise bounding boxes around each digit using Roboflow. This process ensured high-quality, ground-truth data essential for training the object detection model.
 - Images are organized in **YOLO format** with corresponding labels:
 ```
 data/processed/
-├── train/
-│   ├── images/
-│   └── labels/
-├── valid/
-│   ├── images/
-│   └── labels/
-└── test/
-    ├── images/
-    └── labels/
+        ├── train/
+        │   ├── images/
+        │   └── labels/
+        ├── valid/
+        │   ├── images/
+        │   └── labels/
+        └── test/
+            ├── images/
+            └── labels/
 ```
 - `data.yaml` specifies dataset paths for YOLO training/validation/testing
-- Dataset can be collected manually or via synthetic generation for CAPTCHA images
 
 ---
 
 ## Tech Stack
 
-| Component        | Tool                                                 |
-| ---------------- | ---------------------------------------------------- |
-| Object Detection | [YOLOv8](https://github.com/ultralytics/ultralytics) |
-| Data Labeling    | Roboflow                                             |
-| Framework        | PyTorch                                              |
-| Environment      | Python 3.10+                                         |
-| Visualization    | Matplotlib, OpenCV                                   |
+| Component        | Tool                                                           |
+| ---------------- | -------------------------------------------------------------- |
+| Object Detection | [YOLOv8](https://github.com/ultralytics/ultralytics)           |
+| Data Labeling    | Roboflow(Used for manual annotation and dataset versioning)    |
+| Framework        | PyTorch                                                        |
+| Environment      | Python 3.10+                                                   |
+| Visualization    | Matplotlib, OpenCV                                             |
 
 ---
 
@@ -69,17 +68,27 @@ data/processed/
 ├── data
 │   └── processed
 │       ├── test
-│       │   └── labels
-│       │       └──  .gitkeep
+│       │   ├── images/
+│       │   └── labels/
 │       ├── train
-│       │   └── labels
-│       │       ├── .gitkeep
-│       │       └── captcha_0_png.rf.d2511bedde906d34aabca55a7cdfb5ee.txt
+│       │   ├── images/
+│       │   └── labels/
 │       ├── valid
-│       │   └── labels
-│       │       └──.gitkeep
+│       │   ├── images/
+│       │   └── labels/
 │       └── data.yaml
+├── assets
+│   └── captcha_inference_example.jpg
+├── logs
+│   └── .gitkeep
 ├── model
+│   ├── results
+│   │   ├── evaluation/
+│   │   ├── predictions/
+│   │   ├── training/
+│   │   └── .gitkeep
+│   └── weights/
+│       └── .gitkeep
 ├── src
 │   ├── utils
 │   │   └── logger.py
