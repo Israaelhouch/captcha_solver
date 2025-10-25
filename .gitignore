@@ -1,24 +1,42 @@
-# Python
-__pycache__/
-*.pyc
-*.sqlite
-.vscode/
-
-# Environments
-venv/
-
-# Data and Logs
-data/raw/*
-data/outputs/*
-logs/*
-!data/raw/.gitkeep
-!outputs/.gitkeep
-!logs/.gitkeep
-!model/results/predictions/.gitkeep
-!model/results/evaluation/.gitkeep
-!model/weights/.gitkeep
-
-
 # OS files
 .DS_Store
 Thumbs.db
+
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore virtual environment folders (if using venv)
+venv/
+env/
+.venv/
+
+# Ignore data folders (processed images and labels)
+data/processed/
+# Keep demo files explicitly
+!data/processed/train/images/captcha_0_png.rf.d2511bedde906d34aabca55a7cdfb5ee.jpg
+!data/processed/train/labels/captcha_0_png.rf.d2511bedde906d34aabca55a7cdfb5ee.txt
+t
+
+# Ignore logs
+*.log
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore checkpoints, models, or outputs
+*.h5
+*.ckpt
+*.pt
+*.pth
+*.sav
+*.joblib
+
+# Ignore IDE/editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

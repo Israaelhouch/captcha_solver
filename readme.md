@@ -1,4 +1,4 @@
-# CAPTCHA Solver (Digit-Only) 🔐
+# CAPTCHA Solver (Digit-Only)
 
 [![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
 [![Ultralytics YOLO](https://img.shields.io/badge/YOLOv8-Ultralytics-orange)](https://github.com/ultralytics/ultralytics)
@@ -51,7 +51,7 @@ data/processed/
 
 ---
 
-## 🧠 Tech Stack
+## Tech Stack
 
 | Component        | Tool                                                 |
 | ---------------- | ---------------------------------------------------- |
@@ -69,25 +69,17 @@ data/processed/
 ├── data
 │   └── processed
 │       ├── test
-│       │   ├── images
-│       │   │   └── 98437.jpg
 │       │   └── labels
-│       │       ├── captcha_201_png.rf.e05616c3ae8d49bb7be392b983ff4c80.txt
-│       │       └── captcha_998_png.rf.0f3fe1ff3ebb8305e359a95bb6b875f9.txt
+│       │       └──  .gitkeep
 │       ├── train
-│       │   ├── images
-│       │   │   └── captcha_997_png.rf.cb3eae54ce311ecfaccc84f5642b2cad.jpg
 │       │   └── labels
-│       │       └── captcha_997_png.rf.cb3eae54ce311ecfaccc84f5642b2cad.txt
+│       │       ├── .gitkeep
+│       │       └── captcha_0_png.rf.d2511bedde906d34aabca55a7cdfb5ee.txt
 │       ├── valid
-│       │   ├── images
-│       │   │   └── captcha_996_png.rf.f98620a8659b5af0e5b567972a59e3c3.jpg
 │       │   └── labels
-│       │       └── captcha_996_png.rf.f98620a8659b5af0e5b567972a59e3c3.txt
-│       ├── .gitkeep
+│       │       └──.gitkeep
 │       └── data.yaml
 ├── model
-├── results
 ├── src
 │   ├── utils
 │   │   └── logger.py
@@ -123,7 +115,7 @@ pip install -r requirements.txt
 ---
 
 ## Usage
-1️⃣ Training
+1. Training
 ```bash
 python run.py train
 ```
@@ -131,7 +123,7 @@ python run.py train
 - Saves best.pt and last.pt in model/
 - All training logs and results saved in results/train/
 
-2️⃣ Evaluation
+2. Evaluation
 ```bash
 python run.py evaluate
 ```
@@ -140,7 +132,7 @@ python run.py evaluate
 - Saves evaluation plots and metrics in results/evaluation/
 - Logs evaluation progress in console and results/logs/project.log
 
-3️⃣ CAPTCHA Solving (Inference)
+3. CAPTCHA Solving (Inference)
 ```bash
 python run.py solve --image path/to/captcha_image.jpg --conf 0.3
 ```

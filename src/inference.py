@@ -72,9 +72,6 @@ def solve_captcha(image_path: str, conf_threshold: float = 0.25):
         output_path = PREDICTIONS_DIR / f"{Path(image_path).stem}_pred.jpg"
         cv2.imwrite(str(output_path), img)
 
-        logger.info(f"Saved prediction visualization at: {output_path}")
-        logger.info(f"Predicted digits (left-to-right): {' '.join(digits)}")
-
         return digits, output_path
 
     except Exception as e:

@@ -9,34 +9,35 @@ EVAL_RESULTS_DIR = RESULTS_DIR / "evaluation"
 EVAL_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def evaluate_model(model_path: str = None, test_data: str = None):
+def evaluate_model(model_path: str = None, data_yaml: str = None):
     """
     Evaluate a trained YOLO model on the test dataset.
 
     Args:
         model_path (str or Path): Path to the trained model weights.
-        test_data (str or Path): Path to the test images folder.
+        data_yaml (str or Path): Path to the data.yaml file containing test/val info.
     """
     try:
         model_path = Path(model_path or WEIGHTS_DIR / "best.pt")
-        test_data = Path(test_data or DATA_YAML)
+        data_yaml = Path(data_yaml or DATA_YAML)
 
         if not model_path.exists():
             raise FileNotFoundError(f"Model weights not found at {model_path}")
+        if not data_yaml.exists():
+            raise FileNotFoundError(f"Data YAML not found at {data_yaml}")
 
         logger.info(f"Loading YOLO model from: {model_path}")
         model = YOLO(str(model_path))
 
-        logger.info(f"Running predictions on test data: {test_data}")
-        _ = model.predict(source=str(test_data), save=True, conf=0.25)
-
-        logger.info("Evaluating model performance...")
-        metrics = model.val(data=str(DATA_YAML))
+        logger.info("Evaluating model performance on test/val set...")
+        # Use YAML directly for evaluation
+        metrics = model.val(data=str(data_yaml))
 
         logger.info("Evaluation metrics:")
         for key, value in metrics.results_dict.items():
             logger.info(f"{key}: {value}")
 
+        # Copy generated plots to evaluation folder
         for plot_name in ["confusion_matrix.png", "PR_curve.png", "P_curve.png", "R_curve.png"]:
             plot_path = Path(metrics.save_dir) / plot_name
             if plot_path.exists():
@@ -44,7 +45,8 @@ def evaluate_model(model_path: str = None, test_data: str = None):
                 dest_path.write_bytes(plot_path.read_bytes())
                 logger.info(f"Saved plot: {dest_path}")
 
+        logger.info("Evaluation completed!")
+
     except Exception as e:
         logger.error(f"Evaluation failed: {e}", exc_info=True)
         raise
-
