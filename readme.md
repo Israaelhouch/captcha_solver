@@ -18,6 +18,20 @@ The pipeline includes:
 3. **Evaluation** – precision, recall, F1-score, mAP metrics
 4. **Inference/Solving** – detecting digits in new CAPTCHA images
 5. **Visualization** – annotated images with bounding boxes and predicted digits
+
+**Evaluation Metrics**
+| Metric | Value |
+| ------- | ------ |
+| Precision | 0.987 |
+| Recall | 0.999 |
+| mAP@50 | 0.993 |
+| mAP@50–95 | 0.816 |
+
+**CAPTCHA Solving Example**
+- Input: `data/processed/test/images/60429.jpg`  
+- Prediction: `['6', '0', '4', '2', '9']`  
+- Output Image: `model/results/predictions/60429_pred.jpg`
+  
 <p align="center">
  <img src="assets\captcha_inference_example.jpg" alt="YOLOv8 successfully detecting and recognizing digits in a CAPTCHA image." width="600"> 
 </p>
