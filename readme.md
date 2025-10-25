@@ -18,8 +18,11 @@ The pipeline includes:
 3. **Evaluation** – precision, recall, F1-score, mAP metrics
 4. **Inference/Solving** – detecting digits in new CAPTCHA images
 5. **Visualization** – annotated images with bounding boxes and predicted digits
-<p align="center"> <img src="assets/captcha_inference_example.png" alt="YOLOv8 successfully detecting and recognizing digits in a CAPTCHA image." width="600"> </p> <p align="center"> <em>Demonstration: Example of YOLOv8 successfully solving a CAPTCHA by detecting each digit and labeling it with the correct class (0-9).</em> </p>
----S
+<p align="center">
+ <img src="assets\captcha_inference_example.jpg" alt="YOLOv8 successfully detecting and recognizing digits in a CAPTCHA image." width="600"> 
+</p>
+<p align="center"> <em>Demonstration: Example of YOLOv8 successfully solving a CAPTCHA by detecting each digit and labeling it with the correct class (0-9).</em>
+</p>
 
 ## Features
 
