@@ -129,7 +129,7 @@ pip install -r requirements.txt
 ```
 ---
 
-## Usage
+## Usage
 1. Training
 ```bash
 python run.py train
